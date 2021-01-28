@@ -1,0 +1,16 @@
+set colorscheme jungle
+set colorscheme snow
+set colorscheme solarized
+set colorscheme default
+filter 
+open_with r
+open_with t
+log
+open_with 
+search ranger
+shell 
+show hidden
+
+shell 7z x b842d185f3248098ef58d2c30d5a1d8b.zip -oWbudowane
+delete 
+delete
