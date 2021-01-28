@@ -1,0 +1,21 @@
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+export PATH=$PATH:/home/glamhoth/.cargo/bin
+
+alias aur='trizen -S'
+alias doot='trizen -Syyu'
+alias pac='sudo pacman -S'
+alias paclean='sudo pacman -Rns $(pacman -Qtdq)'
+alias paclist='expac --timefmt="%Y-%m-%d %T" "%l\t%n" | sort'
+alias rm='gio trash'
+alias stream='streamlink --player=mpv'
+
+alias init_rustup='RUSTUP_HOME=home CARGO_HOME=home target/debug/rustup-init --no-modify-path -y'
+alias atop='cd /n7/atop'
+alias egscc='ssh -A -t -X glamhoth@192.168.0.106 ssh -A -t -X s_admin@192.168.2.226'
+
+alias mp='mvn package'
+alias mcp='mvn clean package'
+alias mpt='mvn package -DskipTests'
+alias mt='mvn test'
