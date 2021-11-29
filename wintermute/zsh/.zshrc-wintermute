@@ -1,0 +1,23 @@
+source /usr/share/nvm/init-nvm.sh
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+export PATH=$PATH:/home/glamhoth/.cargo/bin
+export PATH=$PATH:/home/glamhoth/dev/tachyon-workdir/zeta/build/bin
+export PATH=$PATH:/opt/gcc-arm-none-eabi/bin
+
+alias aur='trizen -S'
+alias doot='trizen -Syyu'
+alias pac='sudo pacman -S'
+alias paclean='sudo pacman -Rns $(pacman -Qtdq)'
+alias paclist='expac --timefmt="%Y-%m-%d %T" "%l\t%n" | sort'
+alias rm='gio trash'
+alias stream='streamlink --player=mpv'
+
+alias etb='cd /n7/etb'
+
+alias taste='ssh taste@127.0.0.1 -p 8844'

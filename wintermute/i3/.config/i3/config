@@ -1,0 +1,160 @@
+set $mod Mod4
+
+font pango:Anonymous Pro 12px
+
+client.focused          #ffffff #ffffff #000000
+client.focused_inactive #000000 #000000 #ffffff
+client.unfocused        #000000 #000000 #555555
+client.urgent           #AC4142 #AC4142 #ffffff
+
+floating_modifier $mod
+
+bindsym $mod+Return exec --no-startup-id st
+bindsym $mod+space exec --no-startup-id rofi -show drun -drun-match-fields name
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
+
+bindsym $mod+Shift+f fullscreen toggle
+
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+p focus mode_toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+
+bindsym $mod+Right resize shrink width 1 px or 1 ppt
+bindsym $mod+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+Left resize grow width 1 px or 1 ppt
+
+bindsym --release Print exec ~/.config/util_scripts/screenshot.sh
+
+bindsym $mod+Home exec --no-startup-id ~/.config/util_scripts/polypomo end
+
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace0 "0"
+
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace0
+
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace0
+
+bindsym $mod+F10 exec --no-startup-id ~/.config/util_scripts/lock.sh
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86AudioStop exec --no-startup-id playerctl -p 'spotify' stop
+bindsym XF86AudioPlay exec --no-startup-id playerctl -p 'spotify' play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl -p 'spotify' next
+bindsym XF86AudioPrev exec --no-startup-id playerctl -p 'spotify' prev
+
+bindsym $mod+F12 mode "system"
+mode "system"
+{
+    bindsym s exec systemctl suspend
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default
+}
+
+for_window [class="^.*"] border pixel 1
+
+floating_minimum_size 75 x 50
+floating_maximum_size 1600 x 900
+
+focus_follows_mouse no
+mouse_warping none
+workspace_auto_back_and_forth yes
+
+gaps inner 6
+gaps outer -6
+
+smart_gaps on
+smart_borders on
+
+new_float none
+
+for_window [window_role="pop-up"] floating enable, border none
+for_window [window_role="task_dialog"] floating enable, border none
+for_window [title="Preferences$"] floating enable, border none
+
+no_focus [window_role="pop-up"]
+
+assign [class="firefox"] $workspace2
+assign [class="jetbrains-idea-ce"] $workspace4
+assign [class="code-oss"] $workspace4
+assign [class="Eclipse"] $workspace4
+assign [class="GitKraken"] $workspace5
+assign [class="Signal"] $workspace7
+assign [class="teams-for-linux"] $workspace7
+assign [class="discord"] $workspace7
+assign [class="Notion"] $workspace9
+assign [class="Spotify"] $workspace0
+assign [class="Pavucontrol"] $workspace0
+assign [class="Blueman-manager"] $workspace0
+
+workspace $workspace1 output DP-4
+workspace $workspace2 output DP-4
+workspace $workspace3 output DP-4
+workspace $workspace4 output DP-4
+workspace $workspace5 output DP-2
+workspace $workspace6 output DP-4
+workspace $workspace7 output DP-2
+workspace $workspace8 output DP-4
+workspace $workspace9 output DP-2
+workspace $workspace0 output DP-4
+
+exec --no-startup-id picom -d :0 --backend xr_glx_hybrid --use-damage
+exec --no-startup-id redshift-gtk
+exec --no-startup-id xmodmap ~/.keyrebind
+
+bar
+{
+    i3bar_command ~/.config/polybar/polybar.sh
+}

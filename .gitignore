@@ -1,0 +1,18 @@
+# GTK
+common/gtk/**/bookmarks
+
+# Ranger
+common/ranger/**/__pycache__
+common/ranger/**/history
+
+# Weechat
+common/weechat/**/logs
+common/weechat/**/urlserver_list.txt
+common/weechat/**/weechat.log
+
+# ST
+custom/st/st
+custom/st/st.1
+custom/st/st.info
+custom/st/st.o
+custom/st/x.o

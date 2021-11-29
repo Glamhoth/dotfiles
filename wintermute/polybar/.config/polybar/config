@@ -1,0 +1,128 @@
+[settings]
+
+screenchange-reload = true
+
+[bar/primary]
+
+monitor = ${env:MONITOR:DP-4}
+
+width = 100%
+height = 22
+radius = 0.0
+padding = 2
+
+background = #000000
+foreground = #ffffff
+
+font-0 = "AnonymousPro:pixelsize=10:antialias=true:autohint=true"
+line-size = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+modules-center = i3
+modules-right = polypomo cpu memory date
+
+tray-position = left
+tray-transparent = true
+
+[bar/secondary]
+
+monitor = ${env:MONITOR:DP-2}
+
+width = 100%
+height = 18
+radius = 0.0
+padding = 2
+
+background = #000000
+foreground = #ffffff
+
+font-0 = "AnonymousPro:size=10;3"
+line-size  = 0
+
+modules-center = i3
+
+[module/music]
+
+type = custom/script
+interval = 1
+
+exec = ~/.config/polybar/music.sh
+click-right = playerctl play-pause
+
+[module/i3]
+
+type = internal/i3
+format = <label-state>
+index-sort = true
+wrapping-scroll = false
+
+strip-wsnumbers = true
+
+label-focused = %name%
+label-focused-background = #000000
+label-focused-foreground = #ffffff
+label-focused-padding = 1
+
+label-unfocused = %name%
+label-unfocused-background = #000000
+label-unfocused-foreground = #555555
+label-unfocused-padding = 1
+
+label-visible = %name%
+label-visible-background = #000000
+label-visible-foreground = #555555
+label-visible-padding = 1
+
+label-urgent = %name%
+label-urgent-background = #000000
+label-urgent-foreground = #ff0000
+label-urgent-padding = 1
+
+pin-workspaces = true
+
+[module/cpu]
+
+type = internal/cpu
+interval = 1
+label = CPU %percentage%%
+
+[module/memory]
+
+type = internal/memory
+interval = 1
+label = RAM %percentage_used%%
+
+[module/eth]
+
+type = internal/network
+interface = enp2s0
+interval = 3
+
+format-connected = <label-connected>
+label-connected = /%ifname%/
+
+format-disconnected = <label-disconnected>
+label-disconnected =
+
+[module/date]
+
+type = internal/date
+interval = 1
+
+date = %a%d
+time = "%H:%M"
+
+label = %date% ~ %time%
+
+[module/polypomo]
+
+type = custom/script
+
+exec = ~/.config/util_scripts/polypomo
+tail = true
+
+label = "[%output%]  |"
+click-left = ~/.config/util_scripts/polypomo toggle
+click-right = ~/.config/util_scripts/polypomo end

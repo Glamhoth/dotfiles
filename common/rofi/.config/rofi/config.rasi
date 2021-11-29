@@ -1,0 +1,20 @@
+configuration {
+    auto-select: false;
+    color-active: "#121212,#eeeeee,#121212,#eeeeee,#eeeeee";
+    color-normal: "#121212,#eeeeee,#121212,#eeeeee,#121212";
+    color-window: "#121212,#eeeeee,#121212,#eeeeee,#eeeeee";
+    disable-history: false;
+    font: "Anonymous Pro 14";
+    hide-scrollbar: true;
+    kb-accept-entry: "Tab,Control+m,Return,KP_Enter";
+    kb-remove-to-eol: "";
+    kb-row-down: "Control+j,Down,Control+n";
+    kb-row-tab: "";
+    kb-row-up: "Control+k,Up,Control+p,ISO_Left_Tab";
+    lines: 5;
+    m: "-4";
+    matching: "fuzzy";
+    show-match: false;
+    sort: false;
+    width: 30;
+}
