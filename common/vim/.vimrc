@@ -216,6 +216,7 @@ let g:tagbar_compact = 1
 au! BufEnter *.cpp let b:fswitchdst = 'h'
 au! BufEnter *.h let b:fswitchdst = 'cpp,c'
 au! BufEnter *.cc let b:fswitchdst = 'hh'
+au! BufEnter *.cc let b:fswitchlocs = '../include/*'
 au! BufEnter *.hh let b:fswitchdst = 'cc'
 nnoremap <silent> <Leader>] :FSHere<cr>
 " --- fswitch ---
