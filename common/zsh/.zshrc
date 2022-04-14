@@ -6,6 +6,7 @@ export VISUAL=vim
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.zsh
 
+export PATH=$PATH:/home/glamhoth/.local/bin
 export PATH=$PATH:/home/glamhoth/.config/util_scripts
 
 ZSH_THEME="glamhoth"
@@ -31,13 +32,15 @@ alias gf='git fetch --all --prune'
 alias gs='git status'
 alias ga='git add'
 alias gaa'git add --all'
-alias gc='git commit -S -m'
-alias gca='git commit --amend --no-edit'
+alias gc='git commit -S'
+alias gcm='git commit -S -m'
+alias gca='git commit -S --amend --no-edit'
 alias grb='git rebase'
 alias grbi='git rebase -i'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 alias gpl='git pull'
+alias gl='git log'
 
 alias mp='mvn package'
 alias mcp='mvn clean package'
