@@ -388,9 +388,12 @@
     background = "#FF0000"
     foreground = "#000000"
 
+[blueman]
+    appname = blueman
+    format = ""
+
 [discord]
     appname = discord
-    summary = "*"
     format = ""
 
 #[espeak]
