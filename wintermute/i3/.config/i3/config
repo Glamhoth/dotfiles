@@ -2,10 +2,10 @@ set $mod Mod4
 
 font pango:Anonymous Pro 12px
 
-client.focused          #ffffff #ffffff #000000
-client.focused_inactive #000000 #000000 #ffffff
-client.unfocused        #000000 #000000 #555555
-client.urgent           #AC4142 #AC4142 #ffffff
+client.focused          #ffffff #ffffff #000000 #ffffff #ffffff
+client.focused_inactive #000000 #000000 #ffffff #000000 #000000
+client.unfocused        #000000 #000000 #555555 #000000 #000000
+client.urgent           #AC4142 #AC4142 #ffffff #AC4142 #AC4142
 
 floating_modifier $mod
 
@@ -48,7 +48,8 @@ bindsym $mod+Left resize grow width 1 px or 1 ppt
 
 bindsym --release Print exec ~/.config/util_scripts/screenshot.sh
 
-bindsym $mod+Home exec --no-startup-id ~/.config/util_scripts/polypomo end
+bindsym $mod+Home exec --no-startup-id ~/.config/util_scripts/polypomo toggle
+bindsym $mod+End exec --no-startup-id ~/.config/util_scripts/polypomo end
 
 set $workspace1 "1"
 set $workspace2 "2"
@@ -85,6 +86,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace0
 
 bindsym $mod+F10 exec --no-startup-id ~/.config/util_scripts/lock.sh
 
+bindsym Ctrl+F10 exec --no-startup-id dunstctl close
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -92,7 +95,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioStop exec --no-startup-id playerctl -p 'spotify' stop
 bindsym XF86AudioPlay exec --no-startup-id playerctl -p 'spotify' play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl -p 'spotify' next
-bindsym XF86AudioPrev exec --no-startup-id playerctl -p 'spotify' prev
+bindsym XF86AudioPrev exec --no-startup-id playerctl -p 'spotify' previous
+
+bindsym $mod+minus [class="teams-for-linux"] scratchpad show; \
+                   [class="teams-for-linux"] move absolute position 1830 px 500 px; \
+                   [class="teams-for-linux"] resize set 730 900
+bindsym $mod+plus [class="discord"] scratchpad show; \
+                  [class="discord"] move absolute position 1610 px 500 px; \
+                  [class="discord"] resize set 940 900
 
 bindsym $mod+F12 mode "system"
 mode "system"
@@ -123,6 +133,9 @@ new_float none
 for_window [window_role="pop-up"] floating enable, border none
 for_window [window_role="task_dialog"] floating enable, border none
 for_window [title="Preferences$"] floating enable, border none
+
+for_window [class="teams-for-linux"] floating enable, move absolute position 1830 px 500 px, resize set 940 900, move scratchpad
+for_window [class="discord"] floating enable, move absolute position 1610 px 500 px, resize set 940 900, move scratchpad
 
 no_focus [window_role="pop-up"]
 
