@@ -142,6 +142,9 @@ vmap <Leader>d "+d
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
+nmap <C-\> :set paste!<CR>
+vmap <C-\> :set paste!<CR>
+
 nmap <C-j> 10j
 nmap <C-k> 10k
 vmap <C-j> 10j
@@ -215,9 +218,10 @@ let g:tagbar_compact = 1
 " --- fswitch ---
 au! BufEnter *.cpp let b:fswitchdst = 'h'
 au! BufEnter *.h let b:fswitchdst = 'cpp,c'
-au! BufEnter *.cc let b:fswitchdst = 'hh'
-au! BufEnter *.cc let b:fswitchlocs = '../include/*'
+au! BufEnter *.cc let b:fswitchdst = 'hh' | let b:fswitchlocs = '../include/*'
 au! BufEnter *.hh let b:fswitchdst = 'cc'
+au! BufEnter *.asn let b:fswitchdst = 'acn' | let b:fswitchlocs = '.'
+au! BufEnter *.acn let b:fswitchdst = 'asn' | let b:fswitchlocs = '.'
 nnoremap <silent> <Leader>] :FSHere<cr>
 " --- fswitch ---
 
