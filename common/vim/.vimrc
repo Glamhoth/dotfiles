@@ -230,5 +230,5 @@ let g:rooter_patterns = ['tags']
 let g:rooter_silent_chdir = 1
 " --- rooter ---
 
-highlight ColorColumn ctermbg=2
+highlight ColorColumn ctermbg=3
 match ColorColumn /\%121v\s*\S/
