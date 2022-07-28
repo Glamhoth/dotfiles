@@ -159,7 +159,7 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
 
@@ -382,11 +382,12 @@
     script = ~/.config/util_scripts/alert.sh
 
 [tick-tick]
-    appname = Firefox
+    appname = ticktick
     summary = "*"
     urgency = critical
     background = "#FF0000"
     foreground = "#000000"
+    format = "<b>%b</b>"
 
 [blueman]
     appname = blueman
