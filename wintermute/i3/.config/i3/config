@@ -147,7 +147,9 @@ assign [class="GitKraken"] $workspace5
 assign [class="Signal"] $workspace7
 assign [class="teams-for-linux"] $workspace7
 assign [class="discord"] $workspace7
+assign [title="Outlook$"] $workspace9
 assign [class="Notion"] $workspace9
+assign [class="ticktick"] $workspace9
 assign [class="Spotify"] $workspace0
 assign [class="Pavucontrol"] $workspace0
 assign [class="Blueman-manager"] $workspace0
@@ -163,9 +165,13 @@ workspace $workspace8 output DP-4
 workspace $workspace9 output DP-2
 workspace $workspace0 output DP-4
 
+exec --no-startup-id xmodmap ~/.keyrebind
 exec --no-startup-id picom -d :0 --backend xr_glx_hybrid --use-damage
 exec --no-startup-id redshift-gtk
-exec --no-startup-id xmodmap ~/.keyrebind
+exec --no-startup-id ticktick
+exec --no-startup-id discord
+exec --no-startup-id teams-for-linux
+exec --no-startup-id prospect-mail
 
 bar
 {
