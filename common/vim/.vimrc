@@ -30,6 +30,7 @@ Plugin 'Glamhoth/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'skywind3000/asyncrun.vim'
+Plugin 'rhysd/vim-clang-format'
 
 " Colors
 Plugin 'andreasvc/vim-256noir'
@@ -38,6 +39,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " Languages
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 " --- Vundle ---
@@ -170,6 +172,9 @@ imap <C-o> <Esc>o<Esc>ko
 nmap <Tab> %
 
 nmap <Leader>= <C-W>=
+
+autocmd FileType rust   nmap <silent> <C-f> :RustFmt<CR><F2>
+autocmd FileType cpp    nmap <silent> <C-f> :ClangFormat<CR><F2>
 " --- Keyboard ---
 
 " --- Airline ---
