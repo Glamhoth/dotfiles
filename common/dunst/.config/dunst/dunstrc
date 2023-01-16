@@ -377,10 +377,6 @@
 #    msg_urgency = critical
 #    fullscreen = show
 
-[play_sound]
-    summary = "*"
-    script = ~/.config/util_scripts/alert.sh
-
 [tick-tick]
     appname = ticktick
     summary = "*"
@@ -396,6 +392,18 @@
 [discord]
     appname = discord
     format = ""
+
+[polypomo-break]
+    appname = polypomo
+    summary = *Czas na przerwę*
+    frame_color = "#00FF00"
+    script = ~/.config/util_scripts/shrek.sh
+
+[polypomo-work]
+    appname = polypomo
+    summary = *Praca, praca*
+    frame_color = "#FF00FF"
+    script = ~/.config/util_scripts/praca.sh
 
 #[espeak]
 #    summary = "*"

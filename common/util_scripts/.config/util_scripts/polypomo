@@ -74,13 +74,13 @@ class Timer:
                 self.notified = True
 
                 if status == "work":
-                    message = "Get up from the chair"
+                    message = "Czas na przerwę"
                 else:
-                    message = "Go back to work"
+                    message = "Praca, praca"
 
                 try:
-                    call(["notify-send", "-a", "polypomo", "-t", "0", "-u", "critical", "Pomodoro",
-                        message], stdout=DEVNULL, stderr=DEVNULL)
+                    call(["notify-send", "-a", "polypomo", "-t", "0", "-u", "critical", message],
+                            stdout=DEVNULL, stderr=DEVNULL)
                 except FileNotFoundError:
                     # Skip if notify-send isn't installed
                     pass
@@ -302,7 +302,7 @@ def parse_args():
     # Display - main loop showing status
     parser.add_argument("--worktime",
                         type=int,
-                        default=30 * 60,
+                        default=55 * 60,
                         help="Default work timer time in seconds")
     parser.add_argument("--breaktime",
                         type=int,
