@@ -28,6 +28,7 @@ alias own='sudo chown -R glamhoth:glamhoth'
 alias ping='ping -c 5'
 alias r='ranger'
 
+alias lg='lazygit'
 alias gco='git checkout'
 alias gf='git fetch --all --prune'
 alias gs='git status'

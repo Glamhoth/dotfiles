@@ -28,6 +28,7 @@ common() {
         apply_config "dunst"
         apply_config "gtk"
         apply_config "htop"
+        apply_config "lazygit"
         apply_config "qt5ct"
         apply_config "ranger"
         apply_config "redshift"

@@ -1,0 +1,12 @@
+gui:
+  mouseEvents: false
+  showRandomTip: false
+  theme:
+    ligthTheme: false
+    selectedLineBgColor:
+      - yellow
+    selectedRangeBgColor:
+      - yellow
+keybinding:
+  universal:
+    openFile: '<insert>'

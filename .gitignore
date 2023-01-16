@@ -5,6 +5,9 @@ common/gtk/**/bookmarks
 common/ranger/**/__pycache__
 common/ranger/**/history
 
+# lazygit
+common/lazygit/**/state.yml
+
 # Weechat
 common/weechat/**/logs
 common/weechat/**/urlserver_list.txt
