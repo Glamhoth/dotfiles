@@ -157,21 +157,22 @@ assign [class="Blueman-manager"] $workspace0
 workspace $workspace1 output DP-4
 workspace $workspace2 output DP-4
 workspace $workspace3 output DP-4
-workspace $workspace4 output DP-4
+workspace $workspace4 output DP-2
 workspace $workspace5 output DP-2
 workspace $workspace6 output DP-4
 workspace $workspace7 output DP-2
 workspace $workspace8 output DP-4
 workspace $workspace9 output DP-2
-workspace $workspace0 output DP-4
+workspace $workspace0 output DP-2
 
 exec --no-startup-id xmodmap ~/.keyrebind
 exec --no-startup-id picom -d :0 --backend xr_glx_hybrid --use-damage
 exec --no-startup-id redshift-gtk
 exec --no-startup-id ticktick
 exec --no-startup-id discord
-exec --no-startup-id teams-for-linux
+exec --no-startup-id teams-for-linux --disable-gpu-sandbox
 exec --no-startup-id prospect-mail
+exec --no-startup-id nm-applet
 
 bar
 {
