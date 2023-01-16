@@ -16,7 +16,7 @@ alias pac='sudo pacman -S'
 alias paclean='sudo pacman -Rns $(pacman -Qtdq)'
 alias paclist='expac --timefmt="%Y-%m-%d %T" "%l\t%n" | sort'
 alias rm='gio trash'
-alias stream='streamlink --player=mpv'
+alias stream='streamlink --twitch-disable-ads --player=mpv'
 
 alias etb='cd /n7/etb'
 

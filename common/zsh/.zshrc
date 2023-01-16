@@ -1,6 +1,7 @@
 export CC=clang
 export CXX=clang++
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--separator= '
 export VITASDK=/opt/vitasdk
 export VISUAL=vim
 export ZSH=$HOME/.oh-my-zsh
