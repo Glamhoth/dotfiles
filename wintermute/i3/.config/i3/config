@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Anonymous Pro 12px
+font pango:Anonymous Pro 16px
 
 client.focused          #ffffff #ffffff #000000 #ffffff #ffffff
 client.focused_inactive #000000 #000000 #ffffff #000000 #000000
@@ -10,6 +10,7 @@ client.urgent           #AC4142 #AC4142 #ffffff #AC4142 #AC4142
 floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id st
+bindsym $mod+Shift+Return exec --no-startup-id st zsh -c 'source ~/.zshrc && ssh -p 2222 -X eltdev@localhost'
 bindsym $mod+space exec --no-startup-id rofi -show drun -drun-match-fields name
 
 bindsym $mod+Shift+q kill
@@ -85,6 +86,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
 
 bindsym $mod+F10 exec --no-startup-id ~/.config/util_scripts/lock.sh
+bindsym $mod+F12 exec systemctl suspend
 
 bindsym Ctrl+F10 exec --no-startup-id dunstctl close
 
@@ -97,26 +99,25 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl -p 'spotify' play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl -p 'spotify' next
 bindsym XF86AudioPrev exec --no-startup-id playerctl -p 'spotify' previous
 
-bindsym $mod+minus [class="teams-for-linux"] scratchpad show; \
-                   [class="teams-for-linux"] move absolute position 1830 px 500 px; \
-                   [class="teams-for-linux"] resize set 730 900
-bindsym $mod+plus [class="discord"] scratchpad show; \
-                  [class="discord"] move absolute position 1610 px 500 px; \
-                  [class="discord"] resize set 940 900
-
-bindsym $mod+F12 mode "system"
-mode "system"
-{
-    bindsym s exec systemctl suspend
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default
-}
+bindsym $mod+backslash [class="teams-for-linux"] scratchpad show; \
+                   [class="teams-for-linux"] resize set 1414 1440 ; \
+                   [class="teams-for-linux"] move absolute position 6266 547
+bindsym $mod+minus [class="googlecalendar-*"] scratchpad show; \
+                  [class="googlecalendar-*"] resize set 1414 1440; \
+                  [class="googlecalendar-*"] move absolute position 6266 547
+bindsym $mod+plus [class="ticktick"] scratchpad show; \
+                  [class="ticktick"] resize set 1414 1440; \
+                  [class="ticktick"] move absolute position 6266 547
+bindsym $mod+bracketleft [class="Signal"] scratchpad show ; \
+                  [class="Signal"] resize set 1414 1440 ; \
+                  [class="Signal"] move absolute position 6266 547
+bindsym $mod+bracketright [class="discord"] scratchpad show ; \
+                  [class="discord"] resize set 940 1440 ; \
+                  [class="discord"] move absolute position 6266 547
 
 for_window [class="^.*"] border pixel 1
 
 floating_minimum_size 75 x 50
-floating_maximum_size 1600 x 900
 
 focus_follows_mouse no
 mouse_warping none
@@ -134,22 +135,18 @@ for_window [window_role="pop-up"] floating enable, border none
 for_window [window_role="task_dialog"] floating enable, border none
 for_window [title="Preferences$"] floating enable, border none
 
-for_window [class="teams-for-linux"] floating enable, move absolute position 1830 px 500 px, resize set 940 900, move scratchpad
-for_window [class="discord"] floating enable, move absolute position 1610 px 500 px, resize set 940 900, move scratchpad
+for_window [class="teams-for-linux"] floating enable, resize set 1414 px 1440 px, move absolute position 6266 547, move scratchpad
+for_window [class="ticktick"] floating enable, resize set 1414 1440, move absolute position 6266 547, move scratchpad
+for_window [class="googlecalendar-*"] floating enable, resize set 1414 1440, move absolute position 6266 547, move scratchpad
+for_window [class="Signal"] floating enable, resize set 1414 1440, move absolute position 6266 547, move scratchpad
+for_window [class="discord"] floating enable, resize set 940 1440, move absolute position 6266 547, move scratchpad
 
 no_focus [window_role="pop-up"]
 
 assign [class="firefox"] $workspace2
-assign [class="jetbrains-idea-ce"] $workspace4
 assign [class="code-oss"] $workspace4
-assign [class="Eclipse"] $workspace4
-assign [class="GitKraken"] $workspace5
-assign [class="Signal"] $workspace7
-assign [class="teams-for-linux"] $workspace7
-assign [class="discord"] $workspace7
 assign [title="Outlook$"] $workspace9
 assign [class="Notion"] $workspace9
-assign [class="ticktick"] $workspace9
 assign [class="Spotify"] $workspace0
 assign [class="Pavucontrol"] $workspace0
 assign [class="Blueman-manager"] $workspace0
@@ -157,22 +154,22 @@ assign [class="Blueman-manager"] $workspace0
 workspace $workspace1 output DP-4
 workspace $workspace2 output DP-4
 workspace $workspace3 output DP-4
-workspace $workspace4 output DP-2
-workspace $workspace5 output DP-2
-workspace $workspace6 output DP-4
+workspace $workspace4 output HDMI-0
+workspace $workspace5 output HDMI-0
+workspace $workspace6 output DP-2
 workspace $workspace7 output DP-2
-workspace $workspace8 output DP-4
-workspace $workspace9 output DP-2
-workspace $workspace0 output DP-2
+workspace $workspace8 output DP-2
+workspace $workspace9 output DP-4
+workspace $workspace0 output HDMI-0
 
-exec --no-startup-id xmodmap ~/.keyrebind
-exec --no-startup-id picom -d :0 --backend xr_glx_hybrid --use-damage
+# exec --no-startup-id picom -d :0 --backend xr_glx_hybrid --use-damage
 exec --no-startup-id redshift-gtk
 exec --no-startup-id ticktick
-exec --no-startup-id discord
-exec --no-startup-id teams-for-linux --disable-gpu-sandbox
+exec --no-startup-id google-calendar-nativefier
+exec --no-startup-id /opt/teams-for-linux/teams-for-linux --disable-gpu-sandbox
 exec --no-startup-id prospect-mail
-exec --no-startup-id nm-applet
+exec --no-startup-id v4l2-ctl -d /dev/video0 -c zoom_absolute=140
+# exec --no-startup-id nm-applet
 
 bar
 {
