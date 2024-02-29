@@ -4,7 +4,7 @@ configuration {
     color-normal: "#121212,#eeeeee,#121212,#eeeeee,#121212";
     color-window: "#121212,#eeeeee,#121212,#eeeeee,#eeeeee";
     disable-history: false;
-    font: "Anonymous Pro 14";
+    font: "Anonymous Pro 21";
     hide-scrollbar: true;
     kb-accept-entry: "Tab,Control+m,Return,KP_Enter";
     kb-remove-to-eol: "";
