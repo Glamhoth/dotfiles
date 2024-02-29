@@ -71,8 +71,8 @@ set cursorline
 set enc=utf-8
 set expandtab
 set fenc=utf-8
-set foldmarker=/**,*/
-set foldmethod=marker
+" set foldmarker=/**,*/
+set foldmethod=syntax
 set gdefault
 set hidden
 set history=1000
@@ -234,6 +234,10 @@ nnoremap <silent> <Leader>] :FSHere<cr>
 let g:rooter_patterns = ['tags']
 let g:rooter_silent_chdir = 1
 " --- rooter ---
+
+" --- rust ---
+let g:rust_set_foldmethod = 1
+" --- rust ---
 
 highlight ColorColumn ctermbg=3
 match ColorColumn /\%121v\s*\S/
