@@ -81,7 +81,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars=tab:\ \ ,trail:·
+set listchars=tab:\ \
 set nobackup
 set noshowmode
 set noswapfile
