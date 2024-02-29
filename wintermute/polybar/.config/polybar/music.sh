@@ -6,9 +6,9 @@ if [[ $? -eq 0 ]]; then
 fi
 
 if [[ $player_status = "Playing" ]]; then
-    echo " %{F#ffffff}$metadata"
+    echo -e "%{F#ffffff}${metadata}%{F#ffffff}"
 elif [[ $player_status = "Paused" ]]; then
-    echo " %{F#555555}$metadata"
+    echo "%{F#555555}${metadata}%{F#ffffff}"
 else
     echo ""
 fi
