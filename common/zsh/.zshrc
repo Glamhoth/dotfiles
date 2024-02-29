@@ -2,7 +2,6 @@ export CC=clang
 export CXX=clang++
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--separator= '
-export VITASDK=/opt/vitasdk
 export VISUAL=vim
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.zsh
@@ -44,13 +43,10 @@ alias grba='git rebase --abort'
 alias gpl='git pull'
 alias gl='git log'
 
-alias mp='mvn package'
-alias mcp='mvn clean package'
-alias mpt='mvn package -DskipTests'
-alias mt='mvn test'
-
 alias n='ninja'
 alias nc='ninja clean'
+alias cb='cargo build'
+alias cr='cargo run'
 
 alias dev='cd ~/dev'
 alias tdev='cd ~/dev/tachyon-workdir'
