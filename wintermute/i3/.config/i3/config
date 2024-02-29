@@ -47,10 +47,10 @@ bindsym $mod+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Left resize grow width 1 px or 1 ppt
 
-bindsym --release Print exec ~/.config/util_scripts/screenshot.sh
+bindsym --release Print exec ~/.local/bin/screenshot.sh
 
-bindsym $mod+Home exec --no-startup-id ~/.config/util_scripts/polypomo toggle
-bindsym $mod+End exec --no-startup-id ~/.config/util_scripts/polypomo end
+bindsym $mod+Home exec --no-startup-id ~/.local/bin/polypomo toggle
+bindsym $mod+End exec --no-startup-id ~/.local/bin/polypomo end
 
 set $workspace1 "1"
 set $workspace2 "2"
@@ -85,7 +85,7 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
 
-bindsym $mod+F10 exec --no-startup-id ~/.config/util_scripts/lock.sh
+bindsym $mod+F10 exec --no-startup-id ~/.local/bin/lock.sh
 bindsym $mod+F12 exec systemctl suspend
 
 bindsym Ctrl+F10 exec --no-startup-id dunstctl close
@@ -169,6 +169,7 @@ exec --no-startup-id google-calendar-nativefier
 exec --no-startup-id /opt/teams-for-linux/teams-for-linux --disable-gpu-sandbox
 exec --no-startup-id prospect-mail
 exec --no-startup-id v4l2-ctl -d /dev/video0 -c zoom_absolute=140
+exec --no-startup-id ~/.local/bin/disable-mouse-wakeup.sh
 # exec --no-startup-id nm-applet
 
 bar
