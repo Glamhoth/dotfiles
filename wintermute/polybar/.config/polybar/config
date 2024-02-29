@@ -69,12 +69,12 @@ label = "|  %output%  |"
 
 type = custom/script
 
-exec = ~/.config/util_scripts/polypomo
+exec = ~/.local/bin/polypomo
 tail = true
 
 label = "[%output%]"
-click-left = ~/.config/util_scripts/polypomo toggle
-click-right = ~/.config/util_scripts/polypomo end
+click-left = ~/.local/bin/polypomo toggle
+click-right = ~/.local/bin/polypomo end
 
 [module/cpu]
 
