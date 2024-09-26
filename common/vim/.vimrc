@@ -20,7 +20,6 @@ Plugin 'tpenguinltg/vim-closing-brackets'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-rooter'
 Plugin 'qpkorr/vim-bufkill'
-Plugin 'vim-scripts/restore_view.vim'
 Plugin 'vim-scripts/genutils'
 Plugin 'derekwyatt/vim-fswitch'
 
@@ -31,6 +30,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'tpope/vim-fugitive'
 
 " Colors
 Plugin 'andreasvc/vim-256noir'
@@ -72,6 +72,7 @@ set enc=utf-8
 set expandtab
 set fenc=utf-8
 " set foldmarker=/**,*/
+set nofoldenable
 set foldmethod=syntax
 set gdefault
 set hidden
@@ -175,6 +176,8 @@ nmap <Leader>= <C-W>=
 
 autocmd FileType rust   nmap <silent> <C-f> :RustFmt<CR><F2>
 autocmd FileType cpp    nmap <silent> <C-f> :ClangFormat<CR><F2>
+
+autocmd FileType xml    setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " --- Keyboard ---
 
 " --- Airline ---
@@ -185,6 +188,7 @@ let g:airline_right_sep=''
 let g:airline_section_z=''
 let g:airline_section_c='%t'
 
+let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#tabline#left_sep=''
 let g:airline#extensions#tabline#rith_sep=''
 let g:airline#extensions#tabline#enabled=0
@@ -221,7 +225,8 @@ let g:tagbar_compact = 1
 " --- Tagbar ---
 
 " --- fswitch ---
-au! BufEnter *.cpp let b:fswitchdst = 'h'
+au! BufEnter *.cpp let b:fswitchdst = 'hpp'
+au! BufEnter *.hpp let b:fswitchdst = 'cpp'
 au! BufEnter *.h let b:fswitchdst = 'cpp,c'
 au! BufEnter *.cc let b:fswitchdst = 'hh' | let b:fswitchlocs = '../include/*'
 au! BufEnter *.hh let b:fswitchdst = 'cc'
