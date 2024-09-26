@@ -1,6 +1,6 @@
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent updatestartuptty /bye > /dev/null
+gpgconf --launch gpg-agent
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
@@ -15,10 +15,16 @@ alias paclist='expac --timefmt="%Y-%m-%d %T" "%l\t%n" | sort'
 alias rm='gio trash'
 alias stream='streamlink --twitch-disable-ads --player=mpv'
 
-alias eso='cd ~/dev/eso'
-alias oms='cd ~/dev/eso/ms'
-alias opfs='cd ~/dev/eso/pfs'
-alias olsv='cd ~/dev/eso/lsv'
+alias eso='cd /eso'
+alias oms='cd /eso/ms'
+alias opfs='cd /eso/pfs'
+alias olsv='cd /eso/lsv'
+
+alias vu='vagrant up --provider=virtualbox'
+alias vh='vagrant halt'
+alias vr='vagrant reload'
+alias vrs='vagrant rsync'
+alias vra='vagrant rsync-auto'
 
 alias pi='ssh glamhoth@192.168.0.111'
 alias esovm='ssh -p 2222 -X vagrant@localhost'
