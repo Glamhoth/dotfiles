@@ -26,6 +26,7 @@ alias mod='sudo chmod -R 777'
 alias own='sudo chown -R glamhoth:glamhoth'
 alias ping='ping -c 5'
 alias r='ranger'
+alias fin='notify-send done'
 
 alias lg='lazygit'
 alias gco='git checkout'
