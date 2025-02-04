@@ -125,6 +125,7 @@ vmap <silent> <F2> <Esc>:w!<CR>
 nmap <leader><leader> :Buffers<CR>
 nmap <silent> <Leader>f :Ack "<C-R><C-W>"<CR>
 map <silent> <F7> :set hlsearch!<CR>
+nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nmap <silent> <F9> :AsyncRun ninja<CR><C-W><C-J>
 nmap <silent> <F10> :AsyncRun ./run.sh<CR>
 
@@ -178,6 +179,8 @@ autocmd FileType rust   nmap <silent> <C-f> :RustFmt<CR><F2>
 autocmd FileType cpp    nmap <silent> <C-f> :ClangFormat<CR><F2>
 
 autocmd FileType xml    setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType robot  setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType yaml   setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " --- Keyboard ---
 
 " --- Airline ---
