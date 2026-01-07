@@ -10,7 +10,7 @@ client.urgent           #AC4142 #AC4142 #ffffff #AC4142 #AC4142
 floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id st
-bindsym $mod+Shift+Return exec --no-startup-id st zsh -c 'source ~/.zshrc && ssh -p 2222 -X eltdev@localhost'
+bindsym $mod+Shift+Return exec --no-startup-id st zsh -c 'source ~/.zshrc && ssh -p 2222 -X eltdev@localhost' -X
 bindsym $mod+space exec --no-startup-id rofi -show drun -drun-match-fields name
 
 bindsym $mod+Shift+q kill
