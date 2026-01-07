@@ -26,20 +26,22 @@ Plugin 'derekwyatt/vim-fswitch'
 " Tools
 Plugin 'junegunn/fzf'
 Plugin 'Glamhoth/fzf.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'mileszs/ack.vim'
+" Plugin 'majutsushi/tagbar'
+" Plugin 'skywind3000/asyncrun.vim'
+" Plugin 'rhysd/vim-clang-format'
+" Plugin 'tpope/vim-fugitive'
+Bundle 'LucHermitte/lh-vim-lib'
+Bundle 'LucHermitte/lh-style'
 
 " Colors
 Plugin 'andreasvc/vim-256noir'
-Plugin 'justinmk/vim-syntax-extra'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'justinmk/vim-syntax-extra'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " Languages
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'rust-lang/rust.vim'
+" Plugin 'tikhomirov/vim-glsl'
+" Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 " --- Vundle ---
@@ -71,9 +73,10 @@ set cursorline
 set enc=utf-8
 set expandtab
 set fenc=utf-8
-" set foldmarker=/**,*/
-set nofoldenable
-set foldmethod=syntax
+set foldmarker=/**,*/
+" set nofoldenable
+set nomodeline
+set foldmethod=marker
 set gdefault
 set hidden
 set history=1000
@@ -128,6 +131,7 @@ map <silent> <F7> :set hlsearch!<CR>
 nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nmap <silent> <F9> :AsyncRun ninja<CR><C-W><C-J>
 nmap <silent> <F10> :AsyncRun ./run.sh<CR>
+nnoremap <F6> :NameConvert UPPPER_CASE<CR>
 
 nnoremap ' `
 nnoremap ` '
@@ -136,6 +140,8 @@ nmap B ^
 vmap B ^
 nmap E $
 nmap E $
+
+map , @@
 
 nnoremap Y y$
 
@@ -160,8 +166,8 @@ nmap H <C-W><C-K>
 nmap L <C-W><C-J>
 
 nmap <silent> <Leader>t :enew<CR>
-nmap <silent> <Leader>k :bnext<CR>
-nmap <silent> <Leader>j :bprevious<CR>
+nmap <silent> <Leader>j :bnext<CR>
+nmap <silent> <Leader>k :bprevious<CR>
 nmap <silent> <Leader>q :BD!<CR>
 nmap <silent> <Leader>w :ccl<CR>
 
@@ -191,13 +197,13 @@ let g:airline_right_sep=''
 let g:airline_section_z=''
 let g:airline_section_c='%t'
 
-let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#branch#enabled=0
 let g:airline#extensions#tabline#left_sep=''
 let g:airline#extensions#tabline#rith_sep=''
 let g:airline#extensions#tabline#enabled=0
 let g:airline#extensions#tabline#fnamemod=':t'
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tagbar#flags = 'f'
+let g:airline#extensions#tagbar#enabled=0
+let g:airline#extensions#tagbar#flags='f'
 
 let g:airline_section_y=''
 " --- Airline ---
@@ -228,11 +234,8 @@ let g:tagbar_compact = 1
 " --- Tagbar ---
 
 " --- fswitch ---
-au! BufEnter *.cpp let b:fswitchdst = 'hpp'
-au! BufEnter *.hpp let b:fswitchdst = 'cpp'
-au! BufEnter *.h let b:fswitchdst = 'cpp,c'
-au! BufEnter *.cc let b:fswitchdst = 'hh' | let b:fswitchlocs = '../include/*'
-au! BufEnter *.hh let b:fswitchdst = 'cc'
+au! BufEnter *.hpp let b:fswitchdst = 'cpp' | let b:fswitchlocs = '.,..,../../..'
+au! BufEnter *.cpp let b:fswitchdst = 'hpp' | let b:fswitchlocs = '.,./include/**'
 au! BufEnter *.asn let b:fswitchdst = 'acn' | let b:fswitchlocs = '.'
 au! BufEnter *.acn let b:fswitchdst = 'asn' | let b:fswitchlocs = '.'
 nnoremap <silent> <Leader>] :FSHere<cr>
