@@ -52,5 +52,7 @@ alias cr='cargo run'
 alias dev='cd ~/dev'
 alias tdev='cd ~/dev/tachyon-workdir'
 
+alias clip='xclip -selection clipboard'
+
 source /home/glamhoth/.zshrc-`hostname`
 
